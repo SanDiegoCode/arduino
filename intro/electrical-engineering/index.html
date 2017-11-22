@@ -1,0 +1,654 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A tutorial to arduino">
+      
+      
+        <link rel="canonical" href="https://sandiegocode/arduino/intro/electrical-engineering/">
+      
+      
+        <meta name="author" content="San Diego Code">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.1.1">
+    
+    
+      
+        <title>Electrical Engineering Basics - Arduino Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1411ec6b.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.f383bccf.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://sandiegocode/arduino" title="Arduino Tutorials" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Arduino Tutorials
+              </span>
+              <span class="md-header-nav__topic">
+                Electrical Engineering Basics
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/sandiegocode/arduino/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Arduino Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/sandiegocode/arduino/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../lessons/" title="Lessons Index" class="md-nav__link">
+      Lessons Index
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../what-is-an-arduino/" title="What is an Arduino?" class="md-nav__link">
+      What is an Arduino?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Electrical Engineering Basics
+      </label>
+    
+    <a href="./" title="Electrical Engineering Basics" class="md-nav__link md-nav__link--active">
+      Electrical Engineering Basics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-for-circuit" title="Preparing for circuit" class="md-nav__link">
+    Preparing for circuit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-building-time" title="Circuit Building Time!" class="md-nav__link">
+    Circuit Building Time!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-1k" title="Why 1K?" class="md-nav__link">
+    Why 1K?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-side-note" title="A Side Note" class="md-nav__link">
+    A Side Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-math" title="The Math" class="md-nav__link">
+    The Math
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../programming-basics/" title="Programming Basics" class="md-nav__link">
+      Programming Basics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wip/" title="Projects" class="md-nav__link">
+      Projects
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wip/" title="Kit Components" class="md-nav__link">
+      Kit Components
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-for-circuit" title="Preparing for circuit" class="md-nav__link">
+    Preparing for circuit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-building-time" title="Circuit Building Time!" class="md-nav__link">
+    Circuit Building Time!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-1k" title="Why 1K?" class="md-nav__link">
+    Why 1K?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-side-note" title="A Side Note" class="md-nav__link">
+    A Side Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-math" title="The Math" class="md-nav__link">
+    The Math
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sandiegocode/arduino/edit/master/docs/intro/electrical-engineering.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="electrical-engineering-basics">Electrical Engineering Basics</h1>
+<p>As many of you already probably know, electricity is used to turn lights on, move motors, and make displays work. The strength of the electricity can be measured in two ways:</p>
+<ul>
+<li>Voltage: The amount of potential between 2 terminals, usually two poles of a battery. The lower potential is usually labeled as Ground, GND, or - (on a battery). This is measured in Volts.</li>
+<li>Current: The number of electrons flowing through a circuit per second. This is measured in Amps (A) or more commonly milliamps (mA) because an Amp is very large.</li>
+</ul>
+<p>Every component in a circuit also has a resistance. Resistance limits the current flow, and is measured in Ohms or kiloOhms. Obviously, lights, motors, and displays all have resistances, but just plain wires have resistances as well (albeit very small).</p>
+<p>If this isn't making any sense at all, that's perfectly fine. To make things easier to understand, electricity is often compared to a water tank:</p>
+<p><img alt="Water Tank" src="https://i.imgur.com/9qGD0xk.png" /></p>
+<p>Voltage can be seen as the height of the tank, current can be seen as the size of the pipe letting water out, and any bumps or squeezes in the pipe cause resistance. In most cases, you have direct control over voltage and resistance, but not current. This will be explained later.</p>
+<h2 id="preparing-for-circuit">Preparing for circuit</h2>
+<p>Before we start building our first circuit, we should first learn about the different components we are using:</p>
+<p><img alt="Arduino" src="https://i.imgur.com/kBkElOa.jpg" /></p>
+<ul>
+<li>Arduino: By this point, you probably already know what an Arduino is, but here are some things about it you probably didn't know:<ul>
+<li>Has 20 digital Input/Output pins. (digital pins either output 0 volts or 5 volts, never in between. We will go over the other type, analog, later)</li>
+<li><strong>Pins can be programmed to either output 5V or 0V.</strong><ul>
+<li>You can connect stuff to pins, like lights, and program them to turn on, blink, etc.</li>
+</ul>
+</li>
+<li>Each pin can provide 5 volts at 40 mA</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Breadboard" src="https://i.imgur.com/FiP38yn.jpg" /></p>
+<p><img alt="Breadboard Example" src="https://i.imgur.com/Ggwtjyj.jpg" /></p>
+<ul>
+<li>Breadboard: A breadboard is used for creating circuits easily. They are very easy to use, you just plug wires into the holes. They are also great for prototyping circuits, but not very good for permanent ones.<ul>
+<li>There are also connections under the pins that connect them in a certain way. You can see how the pins are connected below:</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Breadboard Layout" src="https://i.imgur.com/UMvWkHw.jpg" /></p>
+<p>Connect the power pins from the Arduino the "power rail" of the breadboard as shown below. This is so that power connections can be done more easily in the future. They won't be too useful in this circuit though, as there will not be too many things requiring power (just the LED).</p>
+<p><img alt="Arduino and Power Rails" src="https://i.imgur.com/dxp63Ft.jpg" /></p>
+<p>Okay, let's learn about some more components!</p>
+<ul>
+<li>Resistor: A resistor limits the flow of current, adding resistance to the circuit. It is used almost everywhere in even the most basic circuits. Resistors also come in many different standard resistances. They use a very special color coding scheme. <a href="https://www.wikihow.com/Read-Axial-Lead-Resistors">Here</a> is an article on reading the resistor band if you are interested.</li>
+</ul>
+<p><img alt="LED" src="https://i.imgur.com/JjDfVis.png" /></p>
+<ul>
+<li>LED: LED stands for Light Emitting Diode. The Light Emitting portion obviously means that it emits light, and the word diode means that electricity only flows one way. This means that when the light isn't shining when you first turn on the Arduino, the LED is most likely backwards and needs to be flipped around. The short wire coming from the bottom is the negative, and the long wire is the positive terminal.<ul>
+<li>LEDs are also commonly used in series with a resistor. If too much voltage is sent to an LED, it will burn out. The 5V the Arduino sends it is definitely waaay to much, so a resistor is needed to lower the voltage before it goes to the LED.</li>
+<li>LEDs at normal brightness usually take away around 2V, depending on the efficiency and other factors, and operate at 0.015 Amps or 15 mA, ±5mA. If you don't understand this, that's fine. This will come in handy later.</li>
+</ul>
+</li>
+</ul>
+<h2 id="circuit-building-time">Circuit Building Time!</h2>
+<p>Try to make this basic circuit:</p>
+<p><img alt="LED Circuit" src="https://i.imgur.com/jENOg2C.png" /></p>
+<p>As the photo says, plug the wire going from the LED to the Arduino into pin 13. Also, make sure the long lead of the LED is going towards pin 9, and the short lead towards ground.</p>
+<p>Second, Make sure the resistor you use is a 1K resistor. They should be labeled 1K at either the top or bottom of the paper holding the resistors. If you can't see the label or they are all gone, try to find one loose in your kit. The color coding on the resistor should look like this:</p>
+<p><img alt="1K Resistor" src="https://i.imgur.com/FwU0k6B.gif" /></p>
+<p>Once this is done, congratulations! You have finished your circuit! Hopefully you can see that the electricity comes out from the programmable pin 13, travels to the LED, then the resistor, and then to ground.</p>
+<h2 id="why-1k">Why 1K?</h2>
+<p>How did we end up choosing a 1K ohm resistor?</p>
+<p>As the voltage to the LED is increased, it gets brighter and brighter, eventually causing it to burn out. LEDs may be able to take up to 2V before burning out.</p>
+<p>Unfortunately, the Arduino's pins provide 5V, so a resistor is needed to use up some of the voltage before it gets to the LED. If we want 1V going to the LED, that means we would need the resistor to take up 4V. This can be seen in the diagram below:</p>
+<p><img alt="Voltage" src="https://i.imgur.com/FdCjBT4.png" /></p>
+<p>After some testing, we found that a 1K resistor gave the best brightness for our LED.</p>
+<h2 id="a-side-note">A Side Note</h2>
+<p>A lot of times when looking at photos of circuits, they might look like this:</p>
+<p><img alt="LED Schematic" src="https://i.imgur.com/w9IBszw.png" /></p>
+<p>This simply another way of representing circuits. Engineers aren't always the best artists, so drawing out detailed and colorful circuits like the ones used in this lesson isn't always very easy. In a diagram like the one above, different symbols represent different elements of a circuit. The upside down triangle with a line under it is an LED, the zig-zag line is a resistor (the amount of ohms is normally labeled, in the above example it is 330 ohms), and the three lines at the bottom represent the ground pin on the Arduino. Other electrical components, such as motors, buttons, and potentiometers, have different symbols in a schematic. More about them can be learned in the kit component lessons later.</p>
+<h2 id="the-math">The Math</h2>
+<p>Although an understanding of the material so far would probably be enough for the rest of the course, it is important to understand the math if you want to do any advanced experimentation. However, this is entirely optional.</p>
+<p>Fair warning: this might get boring.</p>
+<p>Most basic electrical engineering is based off the equation <em>V = I * R</em>.</p>
+<ul>
+<li><em>V</em> = Voltage (Volts)</li>
+<li><em>I</em> = Current (Amps)</li>
+<li><em>R</em> = Resistance (Ohms).</li>
+</ul>
+<p>To understand the rest, I have to tell you that you've lied to. LEDs don't burn out because they have too much voltage, they burn out because they have too much current running through them. LEDs get their brightness from electrons flowing through them, and as electrons flow by at a greater rate (remember, current is the number of electrons flowing through a circuit per second), the brightness of the LED increases, eventually causing the LED to get so hot it burns out (more like a bright pop, not a fire).</p>
+<p>Current can't be controlled directly, and because current is proportional to resistance by the equation <em>V = I * R</em>, we can reduce the amount of current by increasing the amount of resistance.</p>
+<p>Here's what we know:</p>
+<ul>
+<li>Our LEDs are happy with around 4 mA, or 0.004 Amps of current.</li>
+<li>The Arduino outputs around 5V of voltage.</li>
+<li>The LED has a resistance of around 250 ohms.</li>
+</ul>
+<p>The LED's resistance alone isn't enough to reduce the circuit's current to 4 mA.</p>
+<p>Using the equation <em>V = I * R</em>, we can plug in the voltage supplied by the Arduino's pins and the desired current to calculate <em>R</em>, or the total resistance of the circuit required to lower the amperage down to 4mA.</p>
+<p><em>5V = 0.004A * R</em></p>
+<p><em>R = 1250 Ohms</em></p>
+<p>Therefore, we need a total resistance of 1250 ohms to reduce the current of the circuit down to 4mA, or 0.004A. The LED already supplies 250 ohms of this resistance, so we need a 1000 ohm resistor to make up for the rest of the needed resistance. This is why we chose the 1K resistor (for those who don't know, putting K at the end of a number means multiplying it by 1000).</p>
+<p>Remember this image?:</p>
+<p><img alt="Voltage" src="https://i.imgur.com/FdCjBT4.png" /></p>
+<p>We can actually prove this correct if we calculate the voltage taken up by each component using <em>V = I * R</em>.</p>
+<ul>
+<li><em>V across LED = I of circuit(0.004 Amps) * R of LED (250 Ohms) = 1 Volt</em></li>
+<li><em>V across resistor = I of circuit (0.004 Amps) * R of resistor (1000 Ohms) = 4 Volts</em></li>
+</ul>
+<p>When we add up the voltage across both components, we get <em>1 Volt + 4 Volts = 5 Volts</em>, which is the total voltage given out by the Arduino.</p>
+<p>That's all of the math for now. If you have any questions, don't hesitate to ask any of the assistants.</p>
+                
+                  
+                
+              
+              
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://sandiegocode/arduino/intro/electrical-engineering/";
+    this.page.identifier =
+      "/intro/electrical-engineering/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//sandiegocode.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../what-is-an-arduino/" title="What is an Arduino?" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                What is an Arduino?
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../programming-basics/" title="Programming Basics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Programming Basics
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © San Diego Code
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9a4a50d4.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

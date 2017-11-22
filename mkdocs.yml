@@ -1,0 +1,50 @@
+
+# Project information
+site_name: 'Arduino Tutorials'
+site_description: 'A tutorial to arduino'
+site_author: 'San Diego Code'
+site_url: 'https://sandiegocode/arduino'
+
+pages:
+- Home: index.md
+- Lessons Index: lessons.md
+- Introduction:
+  - What is an Arduino?: intro/what-is-an-arduino.md
+  - Electrical Engineering Basics: intro/electrical-engineering.md
+  - Programming Basics: intro/programming-basics.md
+- Projects: wip.md
+- Kit Components: wip.md
+#- DisplayNameOfLesson: lessonPath.md (in docs/)
+
+# Repository
+repo_name: 'GitHub'
+repo_url: 'https://github.com/sandiegocode/arduino'
+
+# Copyright
+copyright: © San Diego Code
+
+# Documentation and theme
+theme: 'material'
+
+# Options
+extra:
+  palette:
+    primary: 'cyan'
+    accent: 'teal'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  i18n:
+    prev: 'Previous'
+    next: 'Next'
+  author:
+    github: 'sandiegocode'
+  disqus: 'sandiegocode'
+
+# Extensions
+markdown_extensions:
+  - admonition
+
+#Compiler Code
+#extra_css: [compiler.css, button.css]
+#extra_javascript: [imports.js, compiler.js, main.js]

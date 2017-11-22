@@ -14,4 +14,4 @@ Steps to contribute:
 
 ### Credits
 Curriculum Writers:
-- [Nick Nebel](nickwn.github.io)
+- [Nick Nebel](https://nickwn.github.io)
